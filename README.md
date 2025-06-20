@@ -14,7 +14,7 @@ Può essere applicato a **qualsiasi tipo di dialogo**, anche in forma testuale (
 L’idea nasce da un’intuizione di **@Craicek**, membro attivo dell’Academy, che ha creato un **radar plot comparativo tra Simone Rizzo e Raffaele Gaito** partendo da un’intervista doppia e un prompt ben strutturato.  
 Da lì, è nata l’idea di un progetto più ampio e ambizioso, capace di portare questa analisi anche in **ambiti con impatto sociale e politico**.
 
-![Radar plot di esempio](./radarplot.webp){ width=50% }
+<img src="radar-plot.webp" alt="Radar plot comparativo" width="400"/>
 
 ---
 
