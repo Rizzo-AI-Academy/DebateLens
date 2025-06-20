@@ -11,11 +11,12 @@
 **DebateLens** è un progetto didattico nato all’interno della Rizzo AI Academy per creare una web application in grado di analizzare e confrontare il modo in cui due o più soggetti si esprimono durante un dibattito — politico, scientifico, divulgativo o mediatico.  
 Può essere applicato a **qualsiasi tipo di dialogo**, anche in forma testuale (come articoli) o video, grazie all’integrazione di sistemi di trascrizione e modelli linguistici avanzati.
 
-L’idea nasce da un’intuizione di **@Craicek**, membro attivo dell’Academy, che ha creato un **radar plot comparativo tra Simone Rizzo e Raffaele Gaito** partendo da un’intervista doppia e un prompt ben strutturato.  
+L’idea nasce da un’intuizione di **@Craicek**, membro attivo dell’Academy, che ha creato un **radar plot comparativo tra Simone Rizzo e Raffaele Gaito** partendo da un’[intervista](https://ainews.it/secondo-apple-i-modelli-ragionanti-non-ragionano-e-davvero-cosi/) doppia e un prompt ben strutturato.  
 Da lì, è nata l’idea di un progetto più ampio e ambizioso, capace di portare questa analisi anche in **ambiti con impatto sociale e politico**.
-
-<img src="radar-plot.webp" alt="Radar plot comparativo" width="400"/>
-
+<div style="width: 100%; overflow: auto;">
+  <img src="intervista.png" alt="Articolo con intervista" style="float: left; width: 48%; margin-right: 2%;">
+  <img src="radarplot.webp" alt="Radar plot comparativo" style="float: right; width: 48%;">
+</div>
 ---
 
 ## 2. Obiettivi Didattici
