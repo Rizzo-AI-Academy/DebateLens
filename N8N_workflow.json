@@ -1,0 +1,133 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.testo_articolo }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "Dato il testo di un'intervista voglio che assegni a ciascun intervistato un valore da 1 a 5 per le seguenti metriche: \n1. Rigorosità tecnica\n2. Uso di dati oggettivi\n3. Approccio divulgativo\n4. Stile comunicativo\n5. Focalizzazione sull’argomento\n6. Orientamento pratico\n\nRitornami il risultato in JSON"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        220,
+        0
+      ],
+      "id": "84ab1e08-c87d-4438-9a44-958ff576913b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        120,
+        200
+      ],
+      "id": "8d5cad53-cf47-47c5-8286-b4eac316bb50",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "7DUZ68KRyyf4uxWZ",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"name\": \"valutazione_intervistati\",\n  \"strict\": true,\n  \"schema\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"intervistati\": {\n        \"type\": \"array\",\n        \"description\": \"Lista delle valutazioni per ciascun intervistato.\",\n        \"items\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"nome_intervistato\": {\n              \"type\": \"string\",\n              \"description\": \"Nome completo o identificativo dell'intervistato.\"\n            },\n            \"rigorosita_tecnica\": {\n              \"type\": \"number\",\n              \"description\": \"Valutazione della rigorosità tecnica (da 1 a 5).\",\n              \"minimum\": 1,\n              \"maximum\": 5\n            },\n            \"uso_dati_oggettivi\": {\n              \"type\": \"number\",\n              \"description\": \"Valutazione sull'uso di dati oggettivi (da 1 a 5).\",\n              \"minimum\": 1,\n              \"maximum\": 5\n            },\n            \"approccio_divulgativo\": {\n              \"type\": \"number\",\n              \"description\": \"Valutazione dell'approccio divulgativo (da 1 a 5).\",\n              \"minimum\": 1,\n              \"maximum\": 5\n            },\n            \"stile_comunicativo\": {\n              \"type\": \"number\",\n              \"description\": \"Valutazione dello stile comunicativo (da 1 a 5).\",\n              \"minimum\": 1,\n              \"maximum\": 5\n            },\n            \"focalizzazione_argomento\": {\n              \"type\": \"number\",\n              \"description\": \"Valutazione della focalizzazione sull’argomento (da 1 a 5).\",\n              \"minimum\": 1,\n              \"maximum\": 5\n            },\n            \"orientamento_pratico\": {\n              \"type\": \"number\",\n              \"description\": \"Valutazione dell'orientamento pratico (da 1 a 5).\",\n              \"minimum\": 1,\n              \"maximum\": 5\n            }\n          },\n          \"required\": [\n            \"nome_intervistato\",\n            \"rigorosita_tecnica\",\n            \"uso_dati_oggettivi\",\n            \"approccio_divulgativo\",\n            \"stile_comunicativo\",\n            \"focalizzazione_argomento\",\n            \"orientamento_pratico\"\n          ],\n          \"additionalProperties\": false\n        }\n      }\n    },\n    \"required\": [\n      \"intervistati\"\n    ],\n    \"additionalProperties\": false\n  }\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        180
+      ],
+      "id": "dc762a49-ea9f-4b9e-b73b-33e200ef3f5d",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "af5d6f27-179f-4c51-9670-4310589e050e",
+        "responseMode": "lastNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        40,
+        0
+      ],
+      "id": "461c08bf-b0fa-4505-a4d7-8ab28f866faa",
+      "name": "Webhook",
+      "webhookId": "af5d6f27-179f-4c51-9670-4310589e050e"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "bd63bc84-f5cb-4078-a284-729dd2c014d7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "885e38ea1591bfed5bb4aa88fb5cb9d95d3510c3e3380cf3062b5b2fde5b3b1f"
+  },
+  "id": "WkkCmUvLXvr2IaZe",
+  "tags": []
+}

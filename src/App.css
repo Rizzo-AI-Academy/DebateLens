@@ -1,0 +1,96 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e8f0ff 0%, #f9fbff 100%);
+}
+
+/* === LAYOUT === */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* === HEADER === */
+.header {
+  text-align: center;
+}
+.title {
+  font-size: 2.2rem;
+  margin: 0;
+  color: #2d3748;
+}
+.subtitle {
+  margin-top: 4px;
+  font-size: 0.93rem;
+  color: #64748b;
+}
+
+/* === TEXTAREA === */
+.input-text {
+  width: 100%;
+  font-size: 1rem;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  resize: vertical;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border 0.25s, box-shadow 0.25s;
+}
+.input-text:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* === BUTTON === */
+.primary-btn {
+  height: 46px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.1s;
+}
+.primary-btn:hover:not(:disabled) {
+  background: #2563eb;
+}
+.primary-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.primary-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* === CHART === */
+.chart-wrapper {
+  height: 400px;
+  width: 100%;
+}
+
+/* === FOOTER === */
+.footer {
+  margin-top: 32px;
+  font-size: 0.8rem;
+  color: #64748b;
+  text-align: center;
+}

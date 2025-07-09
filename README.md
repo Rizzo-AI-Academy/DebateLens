@@ -1,107 +1,70 @@
-# Specifica di Progetto Didattico: **DebateLens**
+# Getting Started with Create React App
 
-**Progetto a cura di:** Rizzo AI Academy  
-**Data:** 20 Giugno 2025  
-**Versione:** 1.0  
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
----
+## Available Scripts
 
-## 1. Introduzione e Visione del Progetto
+In the project directory, you can run:
 
-**DebateLens** è un progetto didattico nato all’interno della Rizzo AI Academy per creare una web application in grado di analizzare e confrontare il modo in cui due o più soggetti si esprimono durante un dibattito — politico, scientifico, divulgativo o mediatico.  
-Può essere applicato a **qualsiasi tipo di dialogo**, anche in forma testuale (come articoli) o video, grazie all’integrazione di sistemi di trascrizione e modelli linguistici avanzati.
+### `npm start`
 
-L’idea nasce da un’intuizione di **@Craicek**, membro attivo dell’Academy, che ha creato un **radar plot comparativo tra Simone Rizzo e Raffaele Gaito** partendo da un’[intervista](https://ainews.it/secondo-apple-i-modelli-ragionanti-non-ragionano-e-davvero-cosi/) doppia e un prompt ben strutturato.  
-Da lì, è nata l’idea di un progetto più ampio e ambizioso, capace di portare questa analisi anche in **ambiti con impatto sociale e politico**.
-<div style="width: 100%; overflow: auto;">
-  <img src="intervista.png" alt="Articolo con intervista" style="float: left; width: 48%; margin-right: 2%;">
-  <img src="radarplot.webp" alt="Radar plot comparativo" style="float: right; width: 48%;">
-</div>
----
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## 2. Obiettivi Didattici
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Al termine del progetto, i partecipanti saranno in grado di:
+### `npm test`
 
-- **Integrare API Esterne:** Collegare strumenti come YouTube, modelli LLM, servizi di trascrizione e database.
-- **Automatizzare Workflow Compositi:** Usare **N8N** per orchestrare l’intero processo.
-- **Progettare Prompt Mirati:** Costruire prompt per analizzare tono, rigore, stile, dati usati e altri elementi retorici.
-- **Elaborare e Visualizzare Risultati:** Salvare le analisi e creare visualizzazioni (es. radar chart).
-- **Sviluppare Software End-to-End:** Realizzare un’app funzionante da frontend a backend.
-- **Collaborare su Progetti Reali:** Lavorare in team multidisciplinari su task concreti.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-## 3. Architettura della Soluzione e Stack Tecnologico
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Il sistema è progettato per essere modulare e interamente ospitato su **Railway**.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### 1. Frontend (Landing Page)
-- **Tecnologie:** HTML, CSS, JS (senza framework).
-- **Funzione:** Permette di caricare video o testi da confrontare.
-- **Hosting:** Statico su Railway.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 2. Backend (Workflow)
-- **Tecnologia:** N8N.
-- **Funzione:** Gestisce il flusso completo: input, trascrizione, analisi LLM, salvataggio, radar chart.
-- **Hosting:** Container Railway.
+### `npm run eject`
 
-### 3. Database
-- **Tecnologia:** PostgreSQL.
-- **Funzione:** Memorizza confronti, grafici e metadati.
-- **Hosting:** Plugin Railway.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### 4. Moduli Python
-- **Tecnologia:** Script Python richiamati da N8N.
-- **Funzione:** Generazione radar chart (`matplotlib` o `plotly`).
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### 5. API Esterne
-- **Trascrizione:** OpenAI Whisper, AssemblyAI, YouTube.
-- **LLM:** OpenAI GPT-4 / Gemini 1.5.
-- **YouTube API:** Per ottenere metadati video.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
----
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## 4. Flusso Dati (End-to-End)
+## Learn More
 
-1. L’utente accede a **DebateLens.app** e inserisce video o testi.
-2. I dati vengono inviati al webhook N8N.
-3. N8N trascrive (se video), analizza ogni partecipante con prompt dedicati.
-4. Le risposte vengono elaborate e visualizzate in un radar plot.
-5. Il tutto viene salvato nel database.
-6. L’utente viene reindirizzato alla pagina dei risultati.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
----
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## 5. Applicazioni Possibili
+### Code Splitting
 
-- **Politica:** Confronto tra candidati o talk show.
-- **Divulgazione:** Analisi tra content creator.
-- **Educazione:** Dibattiti accademici o simulazioni.
-- **Giornalismo:** Editoriali o articoli a confronto.
-- **Aziende:** Speaker interni o comunicazioni strategiche.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
----
+### Analyzing the Bundle Size
 
-## 6. Task e Ruoli Didattici
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- **Frontend Team:** UI per input e risultati.
-- **Backend & N8N Team:** Workflow di analisi e orchestrazione.
-- **AI Prompt Team:** Definizione metriche e prompt LLM.
-- **Python & Data Viz Team:** Generazione grafici e salvataggio dati.
+### Making a Progressive Web App
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## 7. Esempio di Prompt LLM
+### Advanced Configuration
 
-```text
-Analizza il seguente testo in base ai seguenti criteri, da 1 a 10: 
-1. Rigorosità tecnica
-2. Uso di dati oggettivi
-3. Approccio divulgativo
-4. Stile comunicativo
-5. Focalizzazione sull’argomento
-6. Orientamento pratico
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Restituisci un JSON con questi valori e una breve spiegazione per ciascuno.
+### Deployment
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
